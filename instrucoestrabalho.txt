@@ -1,0 +1,61 @@
+mostrarMenu(){
+}
+
+pedirDados(){
+return matricula,nome
+}
+-recebe:
+   matricula - string
+   nome - string
+
+cadastrarAluno(matricula,nome){
+return lista
+}
+
+EditarInformacao(){
+return lista
+}
+-recebe:
+   matriculaUsuario - string
+
+pedirNota(){
+return listaNotas
+}
+-recebe:
+   nota1 - Number
+   nota2 - Number
+   nota3 - Number
+
+cadastrarNotas(listaNotas){
+return lista
+}
+
+efetuarMedia(){
+return media
+}
+
+cadastrarMedia(media){
+return lista
+}
+
+listarAlunos(){
+return matrizFormatada
+}
+
+tipos dados - 
+
+matricula - string
+nome - string
+nota - Number
+media - Number
+		
+listaGeral = []
+aluno = [["12345","Fabio"]]
+alunocomnotas =[["12345","Fabio",7,6,9]]
+alunocomnotas =[["12345","Fabio",7,6,9,8]]
+
+1 - organizar programa, mostrar menu (gustavo)
+2 - pedir dados, cadastrar alunos (leticia)
+3 - editar informação , listar alunos (sandy)
+4 - pedir nota, cadastrar notas (alanis)
+5 - efetuar media, cadastrar media (luiz)
