@@ -7,6 +7,26 @@
 </head>
 <body>
     <script>
+        function pedirDados(){
+            return matricula,nome
+        }
+        let matricula = prompt("Digite o número da sua matrícula")
+        let nome = prompt("Digite o nome do aluno(a)")
+
+        function cadastrarAluno(matricula,nome){
+            let aluno = [matricula,nome]
+            for (let matricula of aluno) {
+                let matriculaUsuario = prompt("Digite a matrícula")
+
+                if (matricula === matriculaUsuario) {
+                    return alert("A matrícula digitada já está cadastrada")
+                } else {
+                    return aluno
+                }
+            }     
+        }
+
+        console.log(cadastrarAluno(matricula,nome))
 
     </script>
 </body>
