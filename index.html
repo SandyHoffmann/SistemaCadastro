@@ -7,6 +7,40 @@
 </head>
 <body>
     <script>
+        function EditarInformacao(){
+            let matriculaUsuario = prompt("Qual a matricula do aluno que você quer editar? ")
+            let mudou = 0
+            for (let i of lista){
+                if (i[0] == matriculaUsuario){
+                    i[1] = prompt("Qual a alteração no nome desse aluno? ")
+                    mudou = 1
+                    break
+                }
+            }
+            if (!mudou) return 'Matricula não encontrada no sistema! '
+            return lista
+        }
+
+        let lista = [["12345","Pedro"],["23344","Ana",6,7,8,9.0]]
+
+        function listarAlunos(){
+            let matrizFormatada = "Matrícula  Nome   Nota 1  Nota 2  Nota 3  Média"
+            let espacamentoPadrao = "               "
+            for (let item of lista){
+                matrizFormatada+="\n"
+                for (let indice = 0; indice<5; indice++){
+                    if (item[indice] == undefined){
+                        matrizFormatada +=  "-- "
+                    } else{
+                    matrizFormatada += item[indice] + "  "
+                    }
+                }
+                matrizFormatada+="\n"
+            }
+            return matrizFormatada
+
+        }
+        console.table(lista)
 
     </script>
 </body>
