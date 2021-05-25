@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-
+        let lista = [] 
         function mostrarMenu(){
             let continua
             do {
@@ -107,6 +107,40 @@
                       media = media.toFixed(2);
                       lista[i][5]=media
                  }
+        }
+        function editarInformacao(){
+            let matriculaUsuario = prompt("Qual a matricula do aluno que você quer editar? ")
+            let mudou = 0
+            for (let i of lista){
+                if (i[0] == matriculaUsuario){
+                    i[1] = prompt("Qual a alteração no nome desse aluno? ")
+                    mudou = 1
+                    break
+                }
+            }
+            if (!mudou) alert('Matricula não encontrada no sistema! ')
+        }
+
+        function listarAlunos(){
+            let matrizFormatada = []
+            for (let e = 0; e < lista.length;e++){
+                matrizFormatada.push({})
+                matrizFormatada[e].matricula = lista[e][0]
+                matrizFormatada[e].nome = lista[e][1]
+                if (lista[e][2] == undefined){
+                    matrizFormatada[e].nota_1 = "--"
+                    matrizFormatada[e].nota_2 = "--"
+                    matrizFormatada[e].nota_3 = "--"
+                    matrizFormatada[e].media = "--"
+
+                } else{
+                    matrizFormatada[e].nota_1 = lista[e][2]
+                    matrizFormatada[e].nota_2 = lista[e][3]
+                    matrizFormatada[e].nota_3 = lista[e][4]
+                    matrizFormatada[e].media = lista[e][5]
+                }
+            }
+            console.table(matrizFormatada)
         }
     </script>
 </body>
