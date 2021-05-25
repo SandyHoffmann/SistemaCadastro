@@ -7,7 +7,44 @@
 </head>
 <body>
     <script>
+        function mostrarMenu(){
+            let continua
+            do {
+                let opcao = prompt("Digite 1, 2, 3, 4 ou 0 para:\n\
+                1) Cadastrar aluno\n\
+                2) Editar informações do aluno\n\
+                3) Cadastrar notas de um aluno\n\
+                4) Listar alunos\n\
+                0) Sai")
+                
+                continua = executarFuncoes(opcao)
 
+            } while (continua == true)
+        }
+        function executarFuncoes(opcao){
+            switch (opcao){
+                    
+                    case "1":
+                    alert("placeholder");
+                    break;
+                    case "2":
+                    EditarInformacao();
+                    break;
+                    case "3":
+                    alert("placeholder");
+                    break;
+                    case "4":
+                    listarAlunos();
+                    break;
+                    case "0":
+                    return false;
+                    break;
+                    
+                    default:
+                    alert(`"${opcao}" não é uma opção válida!`)
+                }
+            return true
+        }
     </script>
 </body>
 </html>
