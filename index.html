@@ -16,7 +16,7 @@
                 2) Editar informações do aluno\n\
                 3) Cadastrar notas de um aluno\n\
                 4) Listar alunos\n\
-                0) Sai")
+                0) Sair")
                 
                 continua = executarFuncoes(opcao)
 
@@ -37,7 +37,7 @@
                     case "4":
                     listarAlunos();
                     break;
-                    case "0":
+                    case "0",null:
                     return false;
                     break;
                     
@@ -54,15 +54,14 @@
           
         function cadastrarAluno(matricula,nome){
             let aluno = [matricula,nome]
-            for (let matricula of aluno) {
-                let matriculaUsuario = prompt("Digite a matrícula")
-
-                if (matricula === matriculaUsuario) {
+            for ( let i of lista){
+                 if (matricula == i [0]){
                     return alert("A matrícula digitada já está cadastrada")
-                } else {
-                    return aluno
-                }
-            }     
+                } 
+            }
+            listaNovoAluno = []     
+            listaNovoAluno.push(matricula,nome)
+            lista.push(listaNovoAluno)
         }
           
 
@@ -74,8 +73,8 @@
                      for (let i = 0; i < 3; i++) {
                      notas[i] = +prompt("Digite suas notas")
                      }
-                 efetuarMedia(notas,matricula)
-                 return cadastrarNotas(notas, matricula)
+                cadastrarNotas(notas, matricula)
+                return efetuarMedia(notas,matricula)
              }
          }
           alert("Não foi possivel encontrar a matrícula")
@@ -84,9 +83,9 @@
          function cadastrarNotas (notas, matricula){
              for ( let i of lista){
                  if (matricula == i [0]) {
-                     i.push(notas[0])
-                     i.push(notas[1])
-                     i.push(notas[2])
+                     i[2] = notas[0]
+                     i[3] = notas[1]
+                     i[4] = notas[2]
 
                  }
              }
@@ -103,10 +102,11 @@
           
         function cadastrarMedia(media,matricula){ 
            for ( let i of lista){
-                 if (matricula == i [0]){
+                 if (matricula == i[0]){
                       media = media.toFixed(2);
-                      lista[i][5]=media
+                      i[5]=media
                  }
+        }
         }
         function editarInformacao(){
             let matriculaUsuario = prompt("Qual a matricula do aluno que você quer editar? ")
@@ -142,6 +142,7 @@
             }
             console.table(matrizFormatada)
         }
+        mostrarMenu()
     </script>
 </body>
 </html>
