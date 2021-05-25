@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //Função para editar informação
+        function EditarInformacao(){
+            //Pedir matricula do usuário
+            let matriculaUsuario = prompt("Qual a matricula do aluno que você quer editar? ")
+            //Achar ele na lista
+            for (let i of lista){
+                if (i[0] == matriculaUsuario){
+                    i[1] = prompt("Qual a alteração no nome desse aluno? ")
+                    //Se achar retornar a lista já editada, saindo do loop
+                    return lista
+                }
+            }
+            //Caso não encontre ele retorna uma resposta negativa
+            return 'Matricula não encontrada no sistema! '
+        }
+
+        let lista = [["12345","Pedro"],["23344","Ana",6,7,8,9.0]]
+        console.log(EditarInformacao())
+
+        //Função para listar aluno
+        function listarAlunos(){
+            //Aqui temos a matriz formatada
+            let matrizFormatada = []
+            //Fazendo um for para fazer um formato em que fique bonito na tabela
+            //Achei um modo de fazer isso com dicionario, que seria para que o indice das tabelas apareçam conforme eu queira
+            for (let e = 0; e < lista.length;e++){
+                //Adicionando um dicionario para minha lista de dicionarios
+                matrizFormatada.push({})
+                //Colocando os dados
+                matrizFormatada[e].matricula = lista[e][0]
+                matrizFormatada[e].nome = lista[e][1]
+                //Checando se há notas e medias ou não (no caso se já não ter a nota 1, não irá ter as demais, pois cadastramos elas juntas)
+                if (lista[e][2] == undefined){
+                    matrizFormatada[e].nota_1 = "--"
+                    matrizFormatada[e].nota_2 = "--"
+                    matrizFormatada[e].nota_3 = "--"
+                    matrizFormatada[e].media = "--"
+
+                } else{
+                    matrizFormatada[e].nota_1 = lista[e][2]
+                    matrizFormatada[e].nota_2 = lista[e][3]
+                    matrizFormatada[e].nota_3 = lista[e][4]
+                    matrizFormatada[e].media = lista[e][5]
+                }
+            }
+            //Retornando matriz formatada
+            return (matrizFormatada)
+        }
+        console.table(listarAlunos())
+
+    </script>
+</body>
+</html>
