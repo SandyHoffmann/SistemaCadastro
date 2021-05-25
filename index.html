@@ -74,6 +74,7 @@
                      for (let i = 0; i < 3; i++) {
                      notas[i] = +prompt("Digite suas notas")
                      }
+                 efetuarMedia(notas,matricula)
                  return cadastrarNotas(notas, matricula)
              }
          }
@@ -87,13 +88,26 @@
                      i.push(notas[1])
                      i.push(notas[2])
 
-                     return lista
                  }
-
              }
          }
 
-
+        function efetuarMedia(notas,matricula) {
+            let soma = 0
+            for (let i = 0; i < notas.length; i++) {
+                soma += notas[i]
+            }
+            let media = soma / notas.length
+            cadastrarMedia(media,matricula)
+        } 
+          
+        function cadastrarMedia(media,matricula){ 
+           for ( let i of lista){
+                 if (matricula == i [0]){
+                      media = media.toFixed(2);
+                      lista[i][5]=media
+                 }
+        }
     </script>
 </body>
 </html>
